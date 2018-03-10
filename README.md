@@ -11,23 +11,27 @@ php artisan config:cache
 
 > create controller
 
-php artisan make:controller UserController --resource
-
+```php artisan make:controller UserController --resource
+```
 > create authentication
 
+```
 php artisan make:auth
+```
 
 > Create migration
 
+```
 php artisan migrate [migrate all migration files] it will crfeate three table
+```
 
 > create seeder to insert dummy data
 
+```
 php artisan make:seeder UsersTableSeeder
+```
 
-uncomment in default DatabaseSeeder file // add require all seeder class here
-
-
+> uncomment in default DatabaseSeeder file // add require all seeder class here
 > add below code into created new UsersTableSeeder
 
 ```DB::table('users')->insert([
@@ -39,7 +43,8 @@ uncomment in default DatabaseSeeder file // add require all seeder class here
 		
 > usercontroller for the auth test
 
-```use Illuminate\Support\Facades\Auth;
+```
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 	/**
@@ -64,14 +69,20 @@ class UserController extends Controller
 }
 ```
 
-```php artisan make:controller dashboardController --resource```
+```
+php artisan make:controller dashboardController --resource
+```
 
 >create custome middleware
 
-```php artisan make:middleware IsLogin```
+```
+php artisan make:middleware IsLogin
+
+```
 
 >set middleware into route
-````Route::middleware(['Islogin'])->group(function () 
+````
+Route::middleware(['Islogin'])->group(function () 
 {
 	Route::get('/dashboard', 'DashboardController@index');
 });
@@ -79,7 +90,8 @@ class UserController extends Controller
 
 > Open kernel.php in app/http folder
 
-```protected $routeMiddleware = [
+```
+protected $routeMiddleware = [
 	'Islogin' => \App\Http\Middleware\Islogin::class,
 ];	
 ```
