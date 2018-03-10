@@ -34,7 +34,8 @@ php artisan make:seeder UsersTableSeeder
 > uncomment in default DatabaseSeeder file // add require all seeder class here
 > add below code into created new UsersTableSeeder
 
-```DB::table('users')->insert([
+```
+DB::table('users')->insert([
 		'name' => 'dinesh',
 		'email' => 'dinesh@gmail.com',
 		'password' => bcrypt('123123'),
